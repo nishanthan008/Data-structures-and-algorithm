@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+struct Node
+{
+    public:
+    int data;
+    Node* next;
+    Node(int x)
+    {
+        data=x;
+        next=NULL;
+    }
+};
+  Node* insert(Node* head,int x)//insert process 
+{
+    Node* temp=new Node(x);
+    if(head==NULL)
+    {
+        return temp;
+    }
+    Node* cur=head;
+    while(cur->next!=NULL)
+    {
+        cur=cur->next;
+    }
+    cur->next=temp;
+    return head;
+}
+Node* display(Node* head) //display process
+{
+    Node* mover=head;
+    while(mover!=NULL)
+    {
+        cout<<mover->data<<" ";
+        mover=mover->next;
+    }
+    cout<<endl;
+    return head;
+}
+  int main()
+{
+    Node* head;
+    for(int i=10;i<=50;i+=10)
+    {
+    head= insert(head,i);
+}
+      display(head);
+    return 0;
+}
